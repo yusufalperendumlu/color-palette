@@ -1,0 +1,44 @@
+@mixin theme($theme: #093504)
+{
+    background-color: $theme;
+    box-sizing: 0 0 5px 0 rgba($theme, .25);
+    color: #fff;
+}
+
+body
+{
+    height: 100vh;
+    //background: linear-gradient(to right, #5c7ad4, #4771ee 40%, #030e5f );
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container
+{
+    display: none;
+}
+
+.colorInfo
+{
+    height: 50px;
+    width: 300px;
+    border-radius: 5rem;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: #454545;
+    z-index: 999;
+    padding: 10px;
+    color: #fff;
+    margin: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 100ms ease;
+}

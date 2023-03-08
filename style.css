@@ -1,0 +1,158 @@
+.bgcolor 
+{
+    position: absolute;
+    width: .001vmin;
+    height: .001vmin;
+    border-radius: 50%;
+    opacity: 1;
+}
+  
+div:nth-child(2) 
+{
+    -webkit-box-shadow: 0 0 45vmax 45vmax #47f50d;
+    box-shadow: 0 0 45vmax 45vmax #73bf90;
+    -webkit-animation: hue 10s 0s linear infinite, move1 19s 0s linear infinite;
+    animation: hue 10s 0s linear infinite, move1 19s 0s linear infinite;
+}
+  
+div:nth-child(3) 
+{
+    -webkit-box-shadow: 0 0 45vmax 45vmax #ffffff;
+    box-shadow: 0 0 45vmax 45vmax #057845;
+    -webkit-animation: hue 15s 0s linear infinite, move2 25s 0s linear infinite;
+    animation: hue 15s 0s linear infinite, move2 25s 0s linear infinite;
+}
+  @-webkit-keyframes 
+  hue { 0% {
+   -webkit-filter: hue-rotate(0deg);
+   filter: hue-rotate(0deg);
+  }
+   100% {
+   -webkit-filter: hue-rotate(360deg);
+   filter: hue-rotate(360deg);
+  }
+  }
+  @keyframes 
+  hue { 0% {
+   -webkit-filter: hue-rotate(0deg);
+   filter: hue-rotate(0deg);
+  }
+   100% {
+   -webkit-filter: hue-rotate(360deg);
+   filter: hue-rotate(360deg);
+  }
+  }
+  @-webkit-keyframes 
+  move1 { 0% {
+   top: 0vh;
+   left: 50vw;
+  }
+   25% {
+   left: 0vw;
+  }
+   50% {
+   top: 100vh;
+  }
+   75% {
+   left: 100vw;
+  }
+   100% {
+   top: 0vh;
+   left: 50vw;
+  }
+  }
+  @keyframes 
+  move1 { 0% {
+   top: 0vh;
+   left: 50vw;
+  }
+   25% {
+   left: 0vw;
+  }
+   50% {
+   top: 100vh;
+  }
+   75% {
+   left: 100vw;
+  }
+   100% {
+   top: 0vh;
+   left: 50vw;
+  }
+  }
+  @-webkit-keyframes 
+  move2 { 0% {
+   top: 50vh;
+   left: 100vw;
+  }
+   25% {
+   top: 100vh;
+  }
+   50% {
+   left: 0vw;
+  }
+   75% {
+   top: 0vh;
+  }
+   100% {
+   top: 50vh;
+   left: 100vw;
+  }
+  }
+  @keyframes 
+  move2 { 0% {
+   top: 50vh;
+   left: 100vw;
+  }
+   25% {
+   top: 100vh;
+  }
+   50% {
+   left: 0vw;
+  }
+   75% {
+   top: 0vh;
+  }
+   100% {
+   top: 50vh;
+   left: 100vw;
+  }
+  }
+  @-webkit-keyframes 
+  move3 { 0% {
+   top: 100vh;
+   left: 50vw;
+  }
+   25% {
+   left: 100vw;
+  }
+   50% {
+   top: 0vh;
+  }
+   75% {
+   left: 0vw;
+  }
+   100% {
+   top: 100vh;
+   left: 50vw;
+  }
+  }
+  @keyframes 
+  move3 { 0% {
+   top: 100vh;
+   left: 50vw;
+  }
+   25% {
+   left: 100vw;
+  }
+   50% {
+   top: 0vh;
+  }
+   75% {
+   left: 0vw;
+  }
+   100% {
+   top: 100vh;
+   left: 50vw;
+  }
+  }
