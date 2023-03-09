@@ -1,10 +1,19 @@
 const lightColors = ["#FF5733", "#FFBD33", "#DBFF33", "#33FF57", "#33FFBD", "#333FFF", "#BD33FF", "#FF33DB"];
 const darkColor = ["#003666", "#222", "#6d6e70", "#2a5934", "#ffb900", "#c90f23", "#000000"];
 
-const alertControl = (e) => {
-    e.preventDefault();
+const alertControl = () => {
 
-    
+    toastr.options.positionClass = 'toast-top-right';
+    toastr.options.showDuration = 500;
+    toastr.options.hideDuration = 500;
+    toastr.options.timeOut = 2000;
+    toastr.options.extendedTimeOut = 1000;
+    toastr.options.showEasing = 'swing';
+    toastr.options.hideEasing = 'linear';
+    toastr.options.showMethod = 'fadeIn';
+    toastr.options.hideMethod = 'fadeOut';
+
+    toastr.success('İşlem başarıyla tamamlandı!');
     
 }
 

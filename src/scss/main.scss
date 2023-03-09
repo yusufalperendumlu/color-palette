@@ -43,19 +43,20 @@ body
     transition: all 100ms ease;
 }
 
-.alertActive
+.toastr
 {
     height: 50px;
     width: 300px;
     border-radius: 5rem;
     position: fixed;
-    bottom: 0;
+    top: 0;
     right: 0;
-    background: #454545;
-    z-index: 999;
+    background: #00ff11;
+    z-index: 1;
     padding: 10px;
     color: #fff;
     margin: 1rem;
+    opacity: 0.6;
     cursor: pointer;
     display: flex;
     align-items: center;
