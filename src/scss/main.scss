@@ -42,3 +42,23 @@ body
     justify-content: center;
     transition: all 100ms ease;
 }
+
+.alertActive
+{
+    height: 50px;
+    width: 300px;
+    border-radius: 5rem;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: #454545;
+    z-index: 999;
+    padding: 10px;
+    color: #fff;
+    margin: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 100ms ease;
+}

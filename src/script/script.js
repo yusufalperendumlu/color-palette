@@ -1,6 +1,15 @@
 const lightColors = ["#FF5733", "#FFBD33", "#DBFF33", "#33FF57", "#33FFBD", "#333FFF", "#BD33FF", "#FF33DB"];
 const darkColor = ["#003666", "#222", "#6d6e70", "#2a5934", "#ffb900", "#c90f23", "#000000"];
 
+const alertControl = (e) => {
+    e.preventDefault();
+
+    
+    
+}
+
+
+
 function changeBackgroundColor() {
 
     window.addEventListener("mousemove", (e) => {
@@ -15,7 +24,6 @@ function changeBackgroundColor() {
             console.log("left");
         }
 
-        
 
         else
         {
@@ -39,12 +47,10 @@ document.addEventListener('mousedown', (e) => {
         let backColor = document.body.style.backgroundColor;
 
         navigator.clipboard.writeText(backColor).then( () => {
-            let audio = new Audio("click.mp3.wav");
+            let audio = new Audio("src/audio/clicksound.wav");
             audio.play();
 
-            alert(`${backColor} rengi panoya kopyalandı.`);
-
-            
+            window.addEventListener('click', alertControl);
 
         }, () => {
             alert("Seçmiş olduğunuz renk panoya kopyalanamdı. Lütfen tekrar deneyiniz.");
