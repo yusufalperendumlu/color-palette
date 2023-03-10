@@ -1,6 +1,3 @@
-const lightColors = ["#FF5733", "#FFBD33", "#DBFF33", "#33FF57", "#33FFBD", "#333FFF", "#BD33FF", "#FF33DB"];
-const darkColor = ["#003666", "#222", "#6d6e70", "#2a5934", "#ffb900", "#c90f23", "#000000"];
-
 const alertControl = () => {
 
     toastr.options.positionClass = 'toast-top-right';
@@ -13,39 +10,45 @@ const alertControl = () => {
     toastr.options.showMethod = 'fadeIn';
     toastr.options.hideMethod = 'fadeOut';
 
-    toastr.success('İşlem başarıyla tamamlandı!');
+    let bgc = document.body.style.backgroundColor;
+    toastr.success(`${bgc} rengi panoya kopalandı.`);
+}
+
+
+const container = document.querySelector('body');
+let r = document.body.style.backgroundColor;
+let g = document.body.style.backgroundColor;
+let b = document.body.style.backgroundColor;
+let isLeftToRight = true;
+
+container.addEventListener('mousemove', (e) => {
+  if (e.clientX < container.offsetWidth / 2) 
+  {
+    isLeftToRight = false;
+  } 
+  else 
+  {
+    isLeftToRight = true;
+  }
+  if (isLeftToRight && Math.abs(e.movementX) > Math.abs(e.movementY)) 
+  {
+    r -= 4;
+    g -= 3;
+    b -= 2;
     
-}
+  } 
+  else if (!isLeftToRight && Math.abs(e.movementX) > Math.abs(e.movementY)) 
+  {
+    r += 4;
+    g += 3;
+    b += 2;
+  }
+  r = Math.min(Math.max(r, 0), 255);
+  g = Math.min(Math.max(g, 0), 255);
+  b = Math.min(Math.max(b, 0), 255);
+  container.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+});
 
-
-
-function changeBackgroundColor() {
-
-    window.addEventListener("mousemove", (e) => {
-        let mouseX = e.clientX;
-
-        if(mouseX < window.innerWidth/2)
-        {
-            let colorIndex = Math.floor(Math.random() * lightColors.length);
-            let newColor = lightColors[colorIndex]; 
-            document.body.style.backgroundColor = newColor; 
-            document.body.style.transition = "all 200ms ease-in";
-            console.log("left");
-        }
-
-
-        else
-        {
-            let colorIndex = Math.floor(Math.random() * darkColor.length); 
-            let newColor = darkColor[colorIndex]; 
-            document.body.style.backgroundColor = newColor; 
-            document.body.style.transition = "all 200ms ease-in";
-            console.log("right");
-        }
-    })
-}
-
-setInterval(changeBackgroundColor, 50);
 
 
 document.addEventListener('mousedown', (e) => {
@@ -69,16 +72,8 @@ document.addEventListener('mousedown', (e) => {
 
 document.addEventListener('mousemove', (e) => {
     let bgc = document.body.style.backgroundColor;
-    console.log(bgc);
-    const colorInfo = document.createElement("div");
-    colorInfo.classList.add("colorInfo");
-    if(e.clientX < window.innerWidth /2)
-    {
-        colorInfo.textContent = `Color: ${bgc} - Light color`;
-    }
-    else
-    {
-        colorInfo.textContent = `Color: ${bgc} - Dark Color`;
-    }
+    //console.log(bgc);
+    const rgbValue = document.querySelector(".rgbactive");
+    rgbValue.placeholder = bgc;
     document.body.appendChild(colorInfo);
 })
