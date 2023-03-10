@@ -13,41 +13,77 @@ body {
   display: none;
 }
 
-.colorInfo {
-  height: 50px;
-  width: 300px;
-  border-radius: 5rem;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  background: #ec2323;
+.field {
+  background-color: #46464e;
+  box-sizing: 0 0 5px 0 rgba(70, 70, 78, 0.25);
+  color: #fff;
+  height: 45%;
+  width: 45%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 999;
-  padding: 10px;
-  color: #fff;
-  margin: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 100ms ease;
-}
-
-.toastr {
-  height: 50px;
-  width: 300px;
-  border-radius: 5rem;
-  position: fixed;
-  top: 0;
-  right: 0;
-  background: #00ff11;
-  z-index: 1;
-  padding: 10px;
-  color: #fff;
-  margin: 1rem;
   opacity: 0.6;
-  cursor: pointer;
+  filter: alpha(opacity=60);
+  text-overflow: hidden;
+  overflow: hidden;
+  text-transform: lowercase;
+}
+.field .cont {
+  width: 100%;
+  position: relative;
+  text-indent: 15px;
+  padding: 10px;
+}
+.field .cont .type {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  margin: 15px 0 0 0;
+}
+.field .cont .type input {
+  width: 50%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+  padding: 10px;
+  box-sizing: border-box;
   transition: all 100ms ease;
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
+}
+.field .cont .type span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+  margin: 10px 0 0 0;
+  font-size: 1.2rem;
+  position: absolute;
+  right: 0;
+  flex-direction: column;
+  cursor: pointer;
+}
+@media only screen and (max-width: 480px) {
+  .field .field {
+    width: 80%;
+  }
+  .field .cont {
+    padding: 5px;
+  }
+  .field .cont .type input {
+    width: 80%;
+    font-size: 1.2rem;
+  }
 }/*# sourceMappingURL=main.css.map */
