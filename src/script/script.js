@@ -61,7 +61,7 @@ container.addEventListener('mousemove', (e) => {
   container.style.backgroundColor = color;
 
   const hexValue = document.querySelector(".hexactive");
-    hexValue.placeholder = color;
+  hexValue.placeholder = color;
 
   r = Math.min(Math.max(r, 0), 255);
   g = Math.min(Math.max(g, 0), 255);
@@ -103,30 +103,41 @@ container.addEventListener('mousemove', function (e) {
   
 });
 
+const rgbaToHex = (r, g, b, a) => {
+  r = Math.round(r);
+  g = Math.round(g);
+  b = Math.round(b);
+  a = Math.round(a * 255);
+  return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${a.toString(16).padStart(2, '0')}`;
+};
+
+const hexToRgba = (hex) => {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})?$/i.exec(hex);
+  return result ? [
+    parseInt(result[1], 16),
+    parseInt(result[2], 16),
+    parseInt(result[3], 16),
+    result[4] ? parseInt(result[4], 16) / 255 : 1,
+  ] : null;
+};
+
 const lightenColor = (hex, amount) => {
-  let [r, g, b] = hexToRgb(hex);
-  r += Math.round((255 - r) * amount);
-  g += Math.round((255 - g) * amount);
-  b += Math.round((255 - b) * amount);
-  return rgbToHex(r, g, b);
-}
+  const [r, g, b, a] = hexToRgba(hex);
+  return rgbaToHex(
+    r - Math.round(r * amount),
+    g - Math.round(g * amount),
+    b - Math.round(b * amount),
+    a - a * amount
+  );
+};
 
 const darkenColor = (hex, amount) => {
-  let [r, g, b] = hexToRgb(hex);
-  r -= Math.round(r * amount);
-  g -= Math.round(g * amount);
-  b -= Math.round(b * amount);
-  return rgbToHex(r, g, b);
-}
-
-const hexToRgb = (hex) => {
-  const bigint = parseInt(hex.slice(1), 16);
-  const r = (bigint >> 16) & 255;
-  const g = (bigint >> 8) & 255;
-  const b = bigint & 255;
-  return [r, g, b];
-}
-
-const rgbToHex =(r, g, b) => {
-  return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
-}
+  const [r, g, b, a] = hexToRgba(hex);
+  return rgbaToHex(
+    r + Math.round((255 - r) * amount),
+    g + Math.round((255 - g) * amount),
+    b + Math.round((255 - b) * amount),
+    a + (1 - a) * amount
+  );
+  
+};

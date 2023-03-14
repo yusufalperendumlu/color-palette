@@ -9,14 +9,35 @@ body {
   background-attachment: fixed;
 }
 
+::-moz-placeholder {
+  color: #000000;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+  text-indent: 2px;
+  opacity: 0.6;
+}
+
+::placeholder {
+  color: #000000;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+  text-indent: 2px;
+  opacity: 0.6;
+}
+
 .container {
   display: none;
 }
 
 .field {
-  background-color: #46464e;
-  box-sizing: 0 0 5px 0 rgba(70, 70, 78, 0.25);
+  background-color: rgba(233, 233, 233, 0.6470588235);
+  box-sizing: 0 0 5px 0 rgba(233, 233, 233, 0.25);
   color: #fff;
+  box-shadow: 0 0 10px 0 #f1fff1;
   height: 45%;
   width: 45%;
   position: absolute;
@@ -28,11 +49,12 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 999;
-  opacity: 0.6;
-  filter: alpha(opacity=60);
+  opacity: 0.9;
   text-overflow: hidden;
   overflow: hidden;
   text-transform: lowercase;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 .field .cont {
   width: 100%;
