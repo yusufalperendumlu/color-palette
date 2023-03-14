@@ -73,7 +73,7 @@ container.addEventListener('mousemove', (e) => {
     rgbValue.placeholder = `rgb(${r}, ${g}, ${b})`;
 
     const rgbaValue = document.querySelector(".rgbaactive");
-    rgbaValue.placeholder = `rgba(${r}, ${g}, ${b}, ${a})`;
+    rgbaValue.placeholder = `rgba(${r}, ${g}, ${b}, ${a.toFixed(2)})`;
 
     
 
