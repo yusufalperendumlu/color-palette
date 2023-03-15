@@ -1,3 +1,27 @@
+const popup = document.querySelector(".info-pop-up");
+
+const showPopup = () => {
+  popup.style.display = "block";
+}
+
+document.querySelector(".close").addEventListener('click', () => {
+  document.querySelector(".info-pop-up").style.display = "none";
+})
+
+window.addEventListener('load', () => {
+  showPopup();
+})
+
+if (showPopup)
+{
+  document.querySelector(".close").addEventListener('click', (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+  })
+}
+
+
+
 const alertControl = () => {
 
     toastr.options.positionClass = 'toast-top-right';
@@ -60,22 +84,23 @@ container.addEventListener('mousemove', (e) => {
   }
   container.style.backgroundColor = color;
 
-  const hexValue = document.querySelector(".hexactive");
-  hexValue.placeholder = color;
-
   r = Math.min(Math.max(r, 0), 255);
   g = Math.min(Math.max(g, 0), 255);
   b = Math.min(Math.max(b, 0), 255);
   a = Math.min(Math.max(a, 0), 1);
   container.style.backgroundColor = `rgb(${r}, ${g}, ${b}, ${a})`;
+});
 
-    const rgbValue = document.querySelector(".rgbactive");
-    rgbValue.placeholder = `rgb(${r}, ${g}, ${b})`;
+container.addEventListener('mousemove', (e) => {
 
-    const rgbaValue = document.querySelector(".rgbaactive");
-    rgbaValue.placeholder = `rgba(${r}, ${g}, ${b}, ${a.toFixed(2)})`;
+  const hexValue = document.querySelector(".hexactive");
+  hexValue.placeholder = color;
 
-    
+  const rgbValue = document.querySelector(".rgbactive");
+  rgbValue.placeholder = `rgb(${r}, ${g}, ${b})`;
+
+  const rgbaValue = document.querySelector(".rgbaactive");
+  rgbaValue.placeholder = `rgba(${r}, ${g}, ${b}, ${a.toFixed(2)})`;
 
 });
 
@@ -99,9 +124,7 @@ document.addEventListener('mousedown', (e) => {
 })
 
 
-container.addEventListener('mousemove', function (e) {
-  
-});
+
 
 const rgbaToHex = (r, g, b, a) => {
   r = Math.round(r);
