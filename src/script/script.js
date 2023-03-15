@@ -8,19 +8,18 @@ document.querySelector(".close").addEventListener('click', () => {
   document.querySelector(".info-pop-up").style.display = "none";
 })
 
-window.addEventListener('load', () => {
-  showPopup();
-})
-
-if (showPopup)
-{
-  document.querySelector(".close").addEventListener('click', (e) => {
-    e.stopPropagation();
-    e.preventDefault();
-  })
+const closePopup = (e) => {
+  e.stopPropagation();
+  e.preventDefault();
 }
 
-
+window.addEventListener('load', () => {
+  showPopup();
+  if (showPopup)
+  {
+    popup.addEventListener('click', closePopup);
+  }
+})
 
 const alertControl = () => {
 

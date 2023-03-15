@@ -1,0 +1,76 @@
+.info-pop-up
+{
+
+@media screen and (max-width: 1024px) {
+    width: 40%;
+    padding: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    width: 40%;
+    padding: 20px;
+}
+
+@media screen and (max-width: 480px) {
+    width: 40%;
+    padding: 10px;
+    height: 30%;
+}
+
+@media screen and (max-width: 320px) {
+    width: 80%;
+    padding: 5px;
+
+}
+}
+
+img
+{
+    @media only screen and (max-width: 1024px) {
+        height: 30%;
+        box-shadow: 0 0 20px 0 rgb(106, 97, 0);
+    }
+
+    @media only screen and (max-width: 768px) {
+        height: 30%;
+        box-shadow: 0 0 20px 0 rgb(106, 97, 0);
+    }
+
+    @media only screen and (max-width: 480px) {
+        height: 20%;
+        box-shadow: 0 0 15px 0 rgb(106, 97, 0);
+    }
+
+    @media only screen and (max-width: 320px) {
+        height: 10%;
+        box-shadow: 0 0 10px 0 rgb(106, 97, 0);
+    }
+}
+
+.field
+{
+    @media only screen and (max-width: 480px) {
+        .field {
+          width: 80%;
+        }
+        
+        .cont {
+          padding: 5px;
+          
+          .type {
+            input {
+              width: 80%;
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+}
+
+span
+{
+    @media only screen and (max-width: 425px) {
+        top: 0rem;
+        left: 0rem;
+      }
+}
