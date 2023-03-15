@@ -16,6 +16,12 @@ body
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+
+    .body-active
+    {
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+    }
 }
 
 ::placeholder
@@ -34,6 +40,139 @@ body
     display: none;
 }
 
+
+
+.info-pop-up
+{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 65%;
+    width: 65%;
+    padding: 70px;
+    background: url(../img/charlesdeluvio-YJxAy2p_ZJ4-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    box-shadow: 0 0 10px rgb(106, 97, 0);
+    color: #000000;
+    z-index: 9999;
+    display: none;
+    border-radius: 15px;
+    transition: all 300ms ease-in-out;
+
+    @media only screen and (max-width: 1024px) {
+        width: 40%;
+        padding: 30px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        width: 40%;
+        padding: 20px;
+    }
+
+    @media only screen and (max-width: 480px) {
+        width: 60%;
+        padding: 10px;
+    }
+
+    @media only screen and (max-width: 320px) {
+        width: 80%;
+        padding: 5px;
+    }
+
+    h1
+    {
+        font-size: 2rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: center;
+        margin: 0 0 20px 0;
+    }
+
+    p
+    {
+        font-size: 1.2rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-align: center;
+        text-transform: lowercase;
+
+        b
+        {
+            font-weight: 600;
+        }
+    }
+
+    
+
+    span
+    {
+        background: #3b3b3b;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 45px;
+        position: fixed;
+        top: -2rem;
+        right: -2rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        cursor: pointer;
+        opacity: 0.8;
+    }    
+
+    .info-pop-up-container
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        position: relative;
+        z-index: 999;
+        backdrop-filter: blur(5px);
+
+        img
+        {
+            position: absolute;
+            top: 1rem;
+            height: 70%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            opacity: 0.2;
+            border: none;
+            box-shadow: 0 0 50px 0 rgb(106, 97, 0);
+
+            @media only screen and (max-width: 1024px) {
+                height: 30%;
+                box-shadow: 0 0 20px 0 rgb(106, 97, 0);
+            }
+
+            @media only screen and (max-width: 768px) {
+                height: 30%;
+                box-shadow: 0 0 20px 0 rgb(106, 97, 0);
+            }
+
+            @media only screen and (max-width: 480px) {
+                height: 20%;
+                box-shadow: 0 0 15px 0 rgb(106, 97, 0);
+            }
+
+            @media only screen and (max-width: 320px) {
+                height: 10%;
+                box-shadow: 0 0 10px 0 rgb(106, 97, 0);
+            }
+
+        }
+    }
+}
+  
+
 .field
 {
     @include theme;
@@ -48,14 +187,14 @@ body
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 999;
+    z-index: 99;
     opacity: 0.9;
     text-overflow: hidden;
     overflow: hidden;
     text-transform: lowercase;
     backdrop-filter: blur(10px);
 
-    
+
    .cont
    {
     width: 100%;
