@@ -1,7 +1,7 @@
-const popup = document.querySelector(".info-pop-up");
+const popupI = document.querySelector(".info-pop-up");
 
 const showPopup = () => {
-  popup.style.display = "block";
+  popupI.style.display = "block";
 }
 
 document.querySelector(".close").addEventListener('click', () => {
@@ -17,7 +17,7 @@ window.addEventListener('load', () => {
   showPopup();
   if (showPopup)
   {
-    popup.addEventListener('click', closePopup);
+    popupI.addEventListener('click', closePopup);
   }
 })
 
@@ -93,7 +93,7 @@ container.addEventListener('mousemove', (e) => {
 container.addEventListener('mousemove', (e) => {
 
   const hexValue = document.querySelector(".hexactive");
-  hexValue.placeholder = color;
+  hexValue.placeholder = rgba2hex(window.getComputedStyle(e.target).getPropertyValue("background-color"));
 
   const rgbValue = document.querySelector(".rgbactive");
   rgbValue.placeholder = `rgb(${r}, ${g}, ${b})`;
@@ -102,6 +102,40 @@ container.addEventListener('mousemove', (e) => {
   rgbaValue.placeholder = `rgba(${r}, ${g}, ${b}, ${a.toFixed(2)})`;
 
 });
+
+var popup = document.createElement("div");
+
+const choose = (e) => {
+  var x = e.clientX;
+  var y = e.clientY;
+  var color = window.getComputedStyle(e.target).getPropertyValue("background-color");
+  popup.innerHTML = "<p>" + "RGB" + color.substring(4, color.indexOf(')')) + "</p>" + "<br/>" +
+                    "<p>" + "RGBA" + color.replace(")",")").substring(4) + "</p>" + "<br/>" +
+                    "<p>" + "HEX" + rgba2hex(color) + "</p>";
+  popup.style.position = "fixed";
+  popup.style.top = y + "px";
+  popup.style.left = x + "px";
+  popup.classList.add("choose");
+  document.body.appendChild(popup);
+  
+
+}
+
+document.addEventListener("click", choose);
+
+popup.addEventListener("mouseleave", () => {
+  document.querySelectorAll(".choose").forEach(e => e.remove());
+})
+
+function rgba2hex(rgba) {
+  rgba = rgba.match(/\d+/g);
+  var hex = "#" + ((1 << 24) + (+rgba[0] << 16) + (+rgba[1] << 8) + +rgba[2]).toString(16).slice(1);
+  var alpha = Math.round(+rgba[3] * 255).toString(16);
+  if (alpha.length == 1) alpha = "0" + alpha;
+  hex = hex + alpha;
+  return hex;
+}
+
 
 document.addEventListener('mousedown', (e) => {
     e.preventDefault();

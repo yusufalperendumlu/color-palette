@@ -1,7 +1,31 @@
-.body-active {
+.choose {
+  background: #bbbbbb;
+  box-shadow: 0 0 15px 0 #f1fff1;
+  opacity: 0.7;
+  border-radius: 5px;
+  display: block;
+  z-index: 9999;
+  color: #000000;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 1px;
   overflow: hidden;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+}
+.choose p {
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  margin: 0;
+  padding: 15px 10px;
+}
+.choose p:hover {
+  background: #8f8e8e;
+  transition: all 300ms ease-in-out;
+  font-size: 1.2rem;
 }
 
 body {
@@ -13,6 +37,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+body .body-active {
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 
 ::-moz-placeholder {
@@ -116,8 +145,8 @@ body {
 }
 
 .field {
-  background-color: rgba(233, 233, 233, 0.6470588235);
-  box-sizing: 0 0 5px 0 rgba(233, 233, 233, 0.25);
+  background-color: #646464;
+  box-sizing: 0 0 5px 0 rgba(100, 100, 100, 0.25);
   color: #fff;
   box-shadow: 0 0 10px 0 #f1fff1;
   height: 45%;
