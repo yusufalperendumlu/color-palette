@@ -1,8 +1,51 @@
-@mixin theme($theme: #e9e9e9a5)
+@mixin theme($theme: #646464)
 {
     background-color: $theme;
     box-sizing: 0 0 5px 0 rgba($theme, .25);
     color: #fff;
+}
+
+@mixin pageAdd()
+{
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+
+.choose
+{
+    background: #bbbbbb;
+    box-shadow: 0 0 15px 0 #f1fff1;
+    opacity: 0.7;
+    border-radius: 5px;
+    display: block;
+    z-index: 9999;
+    color: #000000;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    overflow: hidden;
+    
+
+    p
+    {
+        font-size: 1.1rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+        text-transform: lowercase;
+        margin: 0;
+        padding: 15px 10px;
+
+        &:hover
+        {
+            background: #8f8e8e;
+            transition: all 300ms ease-in-out;
+            font-size: 1.2rem;
+        }
+    }
 }
 
 body
@@ -17,10 +60,10 @@ body
     background-size: cover;
     background-attachment: fixed;
 
+
     .body-active
     {
-        overflow: hidden;
-        backdrop-filter: blur(10px);
+       @include pageAdd();
     }
 }
 
@@ -63,26 +106,6 @@ body
     border-radius: 15px;
     transition: all 300ms ease-in-out;
 
-    @media only screen and (max-width: 1024px) {
-        width: 40%;
-        padding: 30px;
-    }
-
-    @media only screen and (max-width: 768px) {
-        width: 40%;
-        padding: 20px;
-    }
-
-    @media only screen and (max-width: 480px) {
-        width: 60%;
-        padding: 10px;
-    }
-
-    @media only screen and (max-width: 320px) {
-        width: 80%;
-        padding: 5px;
-    }
-
     h1
     {
         font-size: 2rem;
@@ -106,8 +129,6 @@ body
             font-weight: 600;
         }
     }
-
-    
 
     span
     {
@@ -134,7 +155,7 @@ body
         width: 100%;
         position: relative;
         z-index: 999;
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(0.5px);
 
         img
         {
@@ -146,28 +167,7 @@ body
             border-radius: 15px;
             opacity: 0.2;
             border: none;
-            box-shadow: 0 0 50px 0 rgb(106, 97, 0);
-
-            @media only screen and (max-width: 1024px) {
-                height: 30%;
-                box-shadow: 0 0 20px 0 rgb(106, 97, 0);
-            }
-
-            @media only screen and (max-width: 768px) {
-                height: 30%;
-                box-shadow: 0 0 20px 0 rgb(106, 97, 0);
-            }
-
-            @media only screen and (max-width: 480px) {
-                height: 20%;
-                box-shadow: 0 0 15px 0 rgb(106, 97, 0);
-            }
-
-            @media only screen and (max-width: 320px) {
-                height: 10%;
-                box-shadow: 0 0 10px 0 rgb(106, 97, 0);
-            }
-
+            box-shadow: 0 0 20px 0 rgb(106, 97, 0);
         }
     }
 }
@@ -251,20 +251,6 @@ body
     
     }
 
-   @media only screen and (max-width: 480px) {
-    .field {
-      width: 80%;
-    }
-    
-    .cont {
-      padding: 5px;
-      
-      .type {
-        input {
-          width: 80%;
-          font-size: 1.2rem;
-        }
-      }
-    }
-  }
 }
+
+
