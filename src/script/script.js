@@ -101,34 +101,55 @@ container.addEventListener('mousemove', (e) => {
   const rgbaValue = document.querySelector(".rgbaactive");
   rgbaValue.placeholder = `rgba(${r}, ${g}, ${b}, ${a.toFixed(2)})`;
 
-  popup.innerHTML = "<p>" + rgbValue + "</p>" + "<br/>" +
-                "<p>" + "RGBA" + color.replace(")",")").substring(4) + "</p>" + "<br/>" +
-                "<p>" + "HEX" + rgba2hex(color) + "</p>";
-
 });
 
-var popup = document.createElement("div");
+let popup = document.createElement("div");
 
 const choose = (e) => {
-  var x = e.clientX;
-  var y = e.clientY;
-  var color = window.getComputedStyle(e.target).getPropertyValue("background-color");
+  let x = e.clientX;
+  let y = e.clientY;
+  let color = window.getComputedStyle(e.target).getPropertyValue("background-color");
+  popup.innerHTML = "<p>" + rgbColor(color) + "</p>" + "<br/>" +
+                    "<p>" + rgbaColor(color) + "</p>" + "<br/>" +
+                    "<p>" + rgba2hex(color) + "</p>";
   popup.style.position = "fixed";
   popup.style.top = y + "px";
   popup.style.left = x + "px";
   popup.classList.add("choose");
   document.body.appendChild(popup);
-  
 
 }
 
-document.addEventListener("click", choose);
+document.addEventListener("click", (e) => {
+  if (popup.classList.contains("choose")) {
+    popup.remove();
+  }
+
+  choose(e);
+});
 
 popup.addEventListener("mouseleave", () => {
   document.querySelectorAll(".choose").forEach(e => e.remove());
 })
 
-function rgba2hex(rgba) {
+const rgbColor = (e) => {
+  let rgb = e.match(/\d+/g);
+  return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+} 
+
+const rgbaColor = (e) => {
+  let rgba = e.match(/\d+(\.\d+)?/g);
+
+  if (rgba[3] === undefined)
+  {
+    return `rgb(${rgba[0]}, ${rgba[1]}, ${rgba[2]}, 1)`;
+  }
+
+
+  return `rgba(${rgba[0]}, ${rgba[1]}, ${rgba[2]}, ${rgba[3]})`;
+}
+
+const rgba2hex = (rgba) => {
   rgba = rgba.match(/\d+/g);
   var hex = "#" + ((1 << 24) + (+rgba[0] << 16) + (+rgba[1] << 8) + +rgba[2]).toString(16).slice(1);
   var alpha = Math.round(+rgba[3] * 255).toString(16);
@@ -137,28 +158,26 @@ function rgba2hex(rgba) {
   return hex;
 }
 
+const copyText = (e) => {
+  const textToCopy = e.target.innerText;
 
-document.addEventListener('mousedown', (e) => {
-    e.preventDefault();
-    
-    if(e.button === 0)
-    {
-        let backColor = document.body.style.backgroundColor;
+    navigator.clipboard.writeText(textToCopy).then(() => {
 
-        navigator.clipboard.writeText(backColor).then( () => {
-            let audio = new Audio("src/audio/clicksound.wav");
-            audio.play();
+      let audio = new Audio("src/audio/clicksound.wav");
+      audio.play();
 
-            window.addEventListener('click', alertControl);
+      window.addEventListener('click', alertControl);
 
-        }, () => {
-            alert("Seçmiş olduğunuz renk panoya kopyalanamadı. Lütfen tekrar deneyiniz.");
-        })
-    }
+    }, () => {
+      alert("Seçmiş olduğunuz renk panoya kopyalanamadı. Lütfen tekrar deneyiniz.");
+    });
+};
+
+popup.querySelectorAll("p").forEach((p) => {
+  p.addEventListener("click", (e) => {
+    copyText(e);
+  });
 })
-
-
-
 
 const rgbaToHex = (r, g, b, a) => {
   r = Math.round(r);
