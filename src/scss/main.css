@@ -25,7 +25,12 @@
 .choose p:hover {
   background: #8f8e8e;
   transition: all 300ms ease-in-out;
-  font-size: 1.2rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
