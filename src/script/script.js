@@ -101,6 +101,10 @@ container.addEventListener('mousemove', (e) => {
   const rgbaValue = document.querySelector(".rgbaactive");
   rgbaValue.placeholder = `rgba(${r}, ${g}, ${b}, ${a.toFixed(2)})`;
 
+  popup.innerHTML = "<p>" + rgbValue + "</p>" + "<br/>" +
+                "<p>" + "RGBA" + color.replace(")",")").substring(4) + "</p>" + "<br/>" +
+                "<p>" + "HEX" + rgba2hex(color) + "</p>";
+
 });
 
 var popup = document.createElement("div");
@@ -109,9 +113,6 @@ const choose = (e) => {
   var x = e.clientX;
   var y = e.clientY;
   var color = window.getComputedStyle(e.target).getPropertyValue("background-color");
-  popup.innerHTML = "<p>" + "RGB" + color.substring(4, color.indexOf(')')) + "</p>" + "<br/>" +
-                    "<p>" + "RGBA" + color.replace(")",")").substring(4) + "</p>" + "<br/>" +
-                    "<p>" + "HEX" + rgba2hex(color) + "</p>";
   popup.style.position = "fixed";
   popup.style.top = y + "px";
   popup.style.left = x + "px";
