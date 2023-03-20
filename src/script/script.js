@@ -33,8 +33,7 @@ const alertControl = () => {
     toastr.options.showMethod = 'fadeIn';
     toastr.options.hideMethod = 'fadeOut';
 
-    let bgc = document.body.style.backgroundColor;
-    toastr.success(`${bgc} rengi panoya kopalandı.`);
+    toastr.success(`rengi panoya kopalandı.`);
 }
 
 
@@ -109,15 +108,17 @@ const choose = (e) => {
   let x = e.clientX;
   let y = e.clientY;
   let color = window.getComputedStyle(e.target).getPropertyValue("background-color");
-  popup.innerHTML = "<p>" + rgbColor(color) + "</p>" + "<br/>" +
-                    "<p>" + rgbaColor(color) + "</p>" + "<br/>" +
-                    "<p>" + rgba2hex(color) + "</p>";
+  if (color && color !="")
+  {
+    popup.innerHTML = "<p>" + rgbColor(color) + "</p>" + "<br/>" +
+                      "<p>" + rgbaColor(color) + "</p>" + "<br/>" +
+                      "<p>" + rgba2hex(color) + "</p>";
+  }                    
   popup.style.position = "fixed";
   popup.style.top = y + "px";
   popup.style.left = x + "px";
   popup.classList.add("choose");
   document.body.appendChild(popup);
-
 }
 
 document.addEventListener("click", (e) => {
@@ -161,16 +162,19 @@ const rgba2hex = (rgba) => {
 const copyText = (e) => {
   const textToCopy = e.target.innerText;
 
-    navigator.clipboard.writeText(textToCopy).then(() => {
+    if (e.button === 0) 
+    {
+      navigator.clipboard.writeText(textToCopy).then(() => {
 
-      let audio = new Audio("src/audio/clicksound.wav");
-      audio.play();
-
-      window.addEventListener('click', alertControl);
-
-    }, () => {
-      alert("Seçmiş olduğunuz renk panoya kopyalanamadı. Lütfen tekrar deneyiniz.");
-    });
+        let audio = new Audio("src/audio/clicksound.wav");
+        audio.play();
+  
+        window.addEventListener('click', alertControl);
+  
+      }, () => {
+        alert("Seçmiş olduğunuz renk panoya kopyalanamadı. Lütfen tekrar deneyiniz.");
+      });
+    }
 };
 
 popup.querySelectorAll("p").forEach((p) => {
