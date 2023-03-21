@@ -11,6 +11,8 @@
     backdrop-filter: blur(10px);
 }
 
+$bgcolor: #fff;
+
 
 .choose
 {
@@ -65,12 +67,18 @@ body
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    background-color: #000000;
     
 
 
     .body-active
     {
        @include pageAdd();
+    }
+
+    .bg-active
+    {
+        background: $bgcolor !important; 
     }
 }
 

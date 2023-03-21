@@ -42,11 +42,15 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  background-color: #000000;
 }
 body .body-active {
   overflow: hidden;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
+}
+body .bg-active {
+  background: #fff !important;
 }
 
 ::-moz-placeholder {
