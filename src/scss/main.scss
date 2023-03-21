@@ -11,8 +11,6 @@
     backdrop-filter: blur(10px);
 }
 
-$bgcolor: #fff;
-
 
 .choose
 {
@@ -74,11 +72,6 @@ body
     .body-active
     {
        @include pageAdd();
-    }
-
-    .bg-active
-    {
-        background: $bgcolor !important; 
     }
 }
 

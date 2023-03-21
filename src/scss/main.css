@@ -49,9 +49,6 @@ body .body-active {
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
 }
-body .bg-active {
-  background: #fff !important;
-}
 
 ::-moz-placeholder {
   color: #000000;
