@@ -108,8 +108,6 @@ container.addEventListener('mousemove', (e) => {
 
 });
 
-
-
 let popup = document.createElement("div");
 
 const choose = (e) => {
