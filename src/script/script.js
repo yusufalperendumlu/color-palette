@@ -58,15 +58,15 @@ const colorChangeHandler = (e) => {
   }
   if (isLeftToRight && Math.abs(e.movementX) > Math.abs(e.movementY)) 
   {
-    r -= 3;
-    g -= 2;
-    b -= 1;
+    r -= 2;
+    g -= 1;
+    b -= 0.5;
   } 
   else if (!isLeftToRight && Math.abs(e.movementX) > Math.abs(e.movementY)) 
   {
-    r += 3;
-    g += 2;
-    b += 1;
+    r += 2;
+    g += 1;
+    b += 0.5;
   }
   if (e.movementY > 0)
   {
