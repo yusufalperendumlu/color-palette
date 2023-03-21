@@ -13,13 +13,14 @@ const closePopup = (e) => {
   e.preventDefault();
 }
 
-window.addEventListener('load', () => {
-  showPopup();
+window.addEventListener('load', (e) => {
   if (showPopup)
   {
+    showPopup();
     popupI.addEventListener('click', closePopup);
   }
 })
+
 
 const alertControl = () => {
 
@@ -46,7 +47,7 @@ let a = 1;
 let color = '#f0f0f0f0'
 let isLeftToRight = true;
 
-container.addEventListener('mousemove', (e) => {
+const colorChangeHandler = (e) => {
   if (e.clientX < container.offsetWidth / 2) 
   {
     isLeftToRight = false;
@@ -87,9 +88,14 @@ container.addEventListener('mousemove', (e) => {
   b = Math.min(Math.max(b, 0), 255);
   a = Math.min(Math.max(a, 0), 1);
   container.style.backgroundColor = `rgb(${r}, ${g}, ${b}, ${a})`;
-});
+};
 
 container.addEventListener('mousemove', (e) => {
+
+  if (popupI.style.display === "none")
+  { 
+    colorChangeHandler(e);
+  }
 
   const hexValue = document.querySelector(".hexactive");
   hexValue.placeholder = rgba2hex(window.getComputedStyle(e.target).getPropertyValue("background-color"));
@@ -101,6 +107,8 @@ container.addEventListener('mousemove', (e) => {
   rgbaValue.placeholder = `rgba(${r}, ${g}, ${b}, ${a.toFixed(2)})`;
 
 });
+
+
 
 let popup = document.createElement("div");
 
