@@ -13,6 +13,7 @@
   font-weight: 400;
   letter-spacing: 1px;
   overflow: hidden;
+  position: fixed;
 }
 .choose p {
   font-size: 1.1rem;

@@ -125,9 +125,34 @@ const choose = (e) => {
   popup.style.left = x + "px";
   popup.classList.add("choose");
   document.body.appendChild(popup);
+
+  let screenWith = window.innerWidth;
+  let popupWidth = popup.offsetWidth;
+  let screenHeight = window.innerHeight;
+  let popupHeight = popup.offsetHeight;
+
+  if (x + popupWidth > screenWith)
+  {
+    popup.style.left = (x - popupWidth) + "px";
+  }
+  else
+  {
+    popup.style.left = x + "px";
+  }
+
+  if (y + popupHeight > screenHeight)
+  {
+    popup.style.top = (y - popupHeight) + "px";
+  }
+  else
+  {
+    popup.style.top = y + "px";
+  }
+
+  
 }
 
-document.addEventListener("click", (e) => {
+window.addEventListener("click", (e) => {
   if (popup.classList.contains("choose")) {
     popup.remove();
   }
@@ -168,8 +193,6 @@ const rgba2hex = (rgba) => {
 const copyText = (e) => {
   const textToCopy = e.target.innerText;
 
-    if (e.button === 0) 
-    {
       navigator.clipboard.writeText(textToCopy).then(() => {
 
         let audio = new Audio("src/audio/clicksound.wav");
@@ -180,13 +203,12 @@ const copyText = (e) => {
       }, () => {
         alert("Seçmiş olduğunuz renk panoya kopyalanamadı. Lütfen tekrar deneyiniz.");
       });
-    }
 };
 
-popup.querySelectorAll("p").forEach((p) => {
-  p.addEventListener("click", (e) => {
-    copyText(e);
-  });
+const ValueOfColor = popup.querySelectorAll("p");
+
+ValueOfColor.forEach((e) => {
+  e.addEventListener("click", copyText);
 })
 
 const rgbaToHex = (r, g, b, a) => {
