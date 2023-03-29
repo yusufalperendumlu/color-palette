@@ -15,16 +15,21 @@ git clone https://github.com/yusufalperendumlu/color-palette.git
   
 ## Çalıştırma
 
-- color-palette-rho.vercel.app
+- https://color-palette-rho.vercel.app
 
 Linkini kullanarak projemi daha detaylı inceleyebilirsiniz.
 ## Genel Bakış
 
-![photo-1]()
 
-![photo-2](src/readme-photo/Screenshot_28.png)
+![Screenshot_17](https://user-images.githubusercontent.com/101521433/228617264-1c5d421a-faac-4ff7-95bf-49bd690d31a6.png)
 
-![photo-3](src/readme-photo/Screenshot_12.png)
+
+![Screenshot_29](https://user-images.githubusercontent.com/101521433/228619653-99369c0a-2747-4cca-88b1-9da4a4026fb5.png)
+
+
+
+![Screenshot_12](https://user-images.githubusercontent.com/101521433/228617395-add82d39-bb2d-4f2b-9483-fa286bd19128.png)
+
 
 ## Daha fazlası
 
