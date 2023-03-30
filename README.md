@@ -1,6 +1,6 @@
 
 # Color Palette
-Bu proje Javascript ve scss kullanılarak geliştirdiğim fikir ve yardımlarıyla oluşturduğum color-palette uygulamamdır.
+Bu proje Javascript ve scss kullanılarak geliştirdiğim color-palette uygulamamdır.
 
 
 ## Kurulum
